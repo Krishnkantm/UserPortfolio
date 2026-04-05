@@ -66,15 +66,35 @@ const Contact = ()=>{
           </div>
 
           <form className="contact__form" onSubmit={handleSubmit}>
-            <input type="text" name="name" placeholder="Names" required />
-            <input type="email" name="email" placeholder="Mail" required />
-            <textarea name="message" placeholder="Your Message" required />
+            <input
+              type="text"
+              name="name"
+              placeholder="Names"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Mail"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              value={form.message}
+              onChange={handleChange}
+              required
+            />
 
             <button type="submit" className="contact__button">
               Submit
             </button>
 
-            <p className="contact__message"></p>
+            <p className="contact__message">{status}</p>
           </form>
 
         </div>
