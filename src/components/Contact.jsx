@@ -65,7 +65,7 @@ const Contact = ()=>{
             </div>
           </div>
 
-          <form className="contact__form">
+          <form className="contact__form" onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="Names" required />
             <input type="email" name="email" placeholder="Mail" required />
             <textarea name="message" placeholder="Your Message" required />
