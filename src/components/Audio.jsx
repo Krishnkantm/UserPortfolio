@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import audio from "../assets/img/fassounds-good-night-lofi-cozy-chill-music-160166.mp3";
 
 const AudioPlayer = () => {
   const audioRef = useRef(null);
@@ -21,7 +22,7 @@ const AudioPlayer = () => {
       {/* Audio Element */}
       <audio ref={audioRef} loop>
         <source
-          src="src/assets/img/fassounds-good-night-lofi-cozy-chill-music-160166.mp3"
+          src={audio}
           type="audio/mpeg"
         />
       </audio>

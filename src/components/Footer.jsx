@@ -1,4 +1,5 @@
 import React from "react";
+import jerry from "../assets/img/tenor.gif";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         <div className="footer__content">
           
           <img
-            src="src/assets/img/tenor.gif"
+            src={jerry}
             alt="gif"
             className="footer__gif"
           />

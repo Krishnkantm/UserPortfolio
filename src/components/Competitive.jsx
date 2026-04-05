@@ -1,4 +1,7 @@
 import React from "react";
+import gffgLogo from "../assets/img/GeeksForGeeks_logo.png";
+import ccLogo from "../assets/img/cc-logo.png";
+import lcLogo from "../assets/img/LeetCode_logo_black.png";
 
 const CompetitiveProgramming = () => {
   return (
@@ -14,7 +17,7 @@ const CompetitiveProgramming = () => {
             onClick={() => window.open('https://www.codechef.com/users/modikishu88', '_blank')}
             style={{ cursor: "pointer" }}
           >
-            <img src="../assets/img/cc-logo.png" alt="CodeChef" className="skill-icon" />
+            <img src={ccLogo} alt="CodeChef" className="skill-icon" />
             <h3>CodeChef</h3>
             <p>1000+ problems solved</p>
           </article>
@@ -24,7 +27,7 @@ const CompetitiveProgramming = () => {
             onClick={() => window.open('https://www.geeksforgeeks.org/profile/modikiy3fo', '_blank')}
             style={{ cursor: "pointer" }}
           >
-            <img src="../assets/img/GeeksForGeeks_logo.png" alt="GeeksforGeeks" className="skill-icon" />
+            <img src={gffgLogo} alt="GeeksforGeeks" className="skill-icon" />
             <h3>GeeksforGeeks</h3>
             <p>500+ problems solved</p>
           </article>
@@ -34,7 +37,7 @@ const CompetitiveProgramming = () => {
             onClick={() => window.open('https://leetcode.com/u/KrishnkantModi/', '_blank')}
             style={{ cursor: "pointer" }}
           >
-            <img src="../assets/img/LeetCode_logo_black.png" alt="LeetCode" className="skill-icon" />
+            <img src={lcLogo} alt="LeetCode" className="skill-icon" />
             <h3>LeetCode</h3>
             <p>850+ problems solved</p>
           </article>
