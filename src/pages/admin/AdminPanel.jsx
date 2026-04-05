@@ -6,6 +6,8 @@ import ProjectsSection from "../Sections/Projects.jsx";
 import CertificatesSection from "../Sections/Certificates.jsx";
 import TestimonialsSection from "../Sections/Testimonial.jsx";
 import StorageSection from "../Sections/Storage.jsx";
+import Footer from "../../components/Footer.jsx";
+import AudioPlayer from "../../components/Audio.jsx";
 
 import "./Styles/admin.css";;
 
@@ -230,6 +232,8 @@ const AdminPanel = () => {
         <div className="content-area" key={active}>
           {SECTION_MAP[active]}
         </div>
+         <AudioPlayer />
+         <Footer />
       </main>
     </div>
   );
