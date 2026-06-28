@@ -653,7 +653,8 @@ body.dark-theme .home__social a:hover { transform: scale(1.05); }
 .projects-track,
 .testimonials-track,
 .cert-track {
-  overflow: visible;
+  overflow-x: auto;
+  overflow-y: visible;
 }
 
 .empty-state {
