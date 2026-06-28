@@ -37,12 +37,12 @@ const Projects = () => {
         <span className="section__subtitle">Most recent work</span>
 
         <div className="slider-wrapper">
-          <div
-            className="slider-track projects-track"
-            ref={trackRef}
-          >
-            {Array.isArray(projects) &&
-              projects.map((project) => (
+          {Array.isArray(projects) && projects.length > 0 ? (
+            <div
+              className="slider-track projects-track"
+              ref={trackRef}
+            >
+              {projects.map((project) => (
                 <article className="project-card" key={project._id}>
 
                   {/* ✅ IMAGE */}
@@ -75,16 +75,21 @@ const Projects = () => {
                   )}
                 </article>
               ))}
-          </div>
+            </div>
+          ) : (
+            <div className="empty-state">No projects found yet.</div>
+          )}
 
-          <div className="slider-nav">
-            <button onClick={() => slide(-1)}>
-              <i className="ri-arrow-left-s-line"></i>
-            </button>
-            <button onClick={() => slide(1)}>
-              <i className="ri-arrow-right-s-line"></i>
-            </button>
-          </div>
+          {Array.isArray(projects) && projects.length > 0 && (
+            <div className="slider-nav">
+              <button onClick={() => slide(-1)}>
+                <i className="ri-arrow-left-s-line"></i>
+              </button>
+              <button onClick={() => slide(1)}>
+                <i className="ri-arrow-right-s-line"></i>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -18,13 +18,13 @@ const Skills = () => {
     fetchSkills();
   }, []); // [] = runs only once on mount
 
-  const slide = (dir) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const card = track.firstElementChild;
-    const cardWidth = card ? card.offsetWidth : 140;
-    track.scrollBy({ left: dir * (cardWidth + 16), behavior: "smooth" });
-  };
+  // const slide = (dir) => {
+  //   const track = trackRef.current;
+  //   if (!track) return;
+  //   const card = track.firstElementChild;
+  //   const cardWidth = card ? card.offsetWidth : 140;
+  //   track.scrollBy({ left: dir * (cardWidth + 16), behavior: "smooth" });
+  // };
 
   return (
     <section className="skills section section__border" id="skills">
@@ -34,29 +34,23 @@ const Skills = () => {
 
         <div className="slider-wrapper">
           {/* ✅ skills-track — CSS gives each card flex: 0 0 140px */}
-          <div
-            className="slider-track skills-track"
-            id="skills-track"
-            ref={trackRef}
-          >
-            {skills.map((skill) => (
-              <article className="skill-card" key={skill._id}>
-                <img src={skill.icon} alt={skill.name} className="skill-icon" />
-                <h3>{skill.name}</h3>
-                <p>{skill.level}</p>
-              </article>
-            ))}
-          </div>
-
-          {/* Arrow buttons */}
-          <div className="slider-nav">
-            <button className="slider-btn" onClick={() => slide(-1)}>
-              <i className="ri-arrow-left-s-line"></i>
-            </button>
-            <button className="slider-btn" onClick={() => slide(1)}>
-              <i className="ri-arrow-right-s-line"></i>
-            </button>
-          </div>
+          {skills.length > 0 ? (
+            <div
+              className="slider-track skills-track"
+              id="skills-track"
+              ref={trackRef}
+            >
+              {skills.map((skill) => (
+                <article className="skill-card" key={skill._id}>
+                  <img src={skill.icon} alt={skill.name} className="skill-icon" />
+                  <h3>{skill.name}</h3>
+                  <p>{skill.level}</p>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">No skills available yet.</div>
+          )}
 
           <div className="slider-dots" id="skills-dots"></div>
         </div>

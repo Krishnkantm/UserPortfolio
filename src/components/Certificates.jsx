@@ -36,52 +36,58 @@ const Certification = () => {
 
         <div className="slider-wrapper">
           {/* ✅ id="cert-track" needed for slider dots JS */}
-          <div
-            className="slider-track cert-track"
-            id="cert-track"
-            ref={trackRef}
-          >
-            {certs.map((cert) => (
-              <div className="cert-card" key={cert._id}>
+          {certs.length > 0 ? (
+            <div
+              className="slider-track cert-track"
+              id="cert-track"
+              ref={trackRef}
+            >
+              {certs.map((cert) => (
+                <div className="cert-card" key={cert._id}>
 
-                {/* Top clickable PDF area */}
-                <a
-                  href={cert.certificateUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="cert-preview"
-                >
-                  <i className="ri-file-pdf-2-line"></i>
-                  <span>View Certificate</span>
-                </a>
+                  {/* Top clickable PDF area */}
+                  <a
+                    href={cert.certificateUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="cert-preview"
+                  >
+                    <i className="ri-file-pdf-2-line"></i>
+                    <span>View Certificate</span>
+                  </a>
 
-                {/* Bottom info */}
-                <div className="cert-body">
-                  <i className="ri-award-line cert-icon"></i>
-                  <div className="cert-info">
-                    <p className="cert-title">{cert.title}</p>
-                    <p className="cert-issuer">{cert.issuer}</p>
-                    <p className="cert-date">{cert.date}</p>
-                    <span className="cert-badge">Completed</span>
+                  {/* Bottom info */}
+                  <div className="cert-body">
+                    <i className="ri-award-line cert-icon"></i>
+                    <div className="cert-info">
+                      <p className="cert-title">{cert.title}</p>
+                      <p className="cert-issuer">{cert.issuer}</p>
+                      <p className="cert-date">{cert.date}</p>
+                      <span className="cert-badge">Completed</span>
+                    </div>
                   </div>
+
                 </div>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">No certificates available yet.</div>
+          )}
 
+          {certs.length > 0 && (
+            <>
+              <div className="slider-nav">
+                <button className="slider-btn" onClick={() => slide(-1)}>
+                  <i className="ri-arrow-left-s-line"></i>
+                </button>
+                <button className="slider-btn" onClick={() => slide(1)}>
+                  <i className="ri-arrow-right-s-line"></i>
+                </button>
               </div>
-            ))}
-          </div>
 
-          {/* ✅ Arrow buttons */}
-          <div className="slider-nav">
-            <button className="slider-btn" onClick={() => slide(-1)}>
-              <i className="ri-arrow-left-s-line"></i>
-            </button>
-            <button className="slider-btn" onClick={() => slide(1)}>
-              <i className="ri-arrow-right-s-line"></i>
-            </button>
-          </div>
-
-          {/* ✅ Dots — populated by main.js initSlider */}
-          <div className="slider-dots" id="cert-dots"></div>
+              <div className="slider-dots" id="cert-dots"></div>
+            </>
+          )}
         </div>
       </div>
     </section>

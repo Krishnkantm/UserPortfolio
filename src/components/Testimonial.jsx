@@ -39,38 +39,45 @@ const Testimonial = () => {
 
         <div className="slider-wrapper">
           {/* ✅ testimonials-track — matches CSS 300px card width */}
-          <div
-            className="slider-track testimonials-track"
-            id="testimonials-track"
-            ref={trackRef}
-          >
-            {data.map((item) => (
-              <article className="testimonial-card" key={item._id}>
+          {data.length > 0 ? (
+            <div
+              className="slider-track testimonials-track"
+              id="testimonials-track"
+              ref={trackRef}
+            >
+              {data.map((item) => (
+                <article className="testimonial-card" key={item._id}>
 
-                {/* Quote text with :: before quote mark from CSS */}
-                <p>"{item.message}"</p>
+                  {/* Quote text with :: before quote mark from CSS */}
+                  <p>"{item.message}"</p>
 
-                {/* Author section — matches CSS .testimonial-author border-top style */}
-                <div className="testimonial-author">
-                  <h3>{item.name}</h3>
-                  <small>{item.role || "Client"}</small>
-                </div>
+                  {/* Author section — matches CSS .testimonial-author border-top style */}
+                  <div className="testimonial-author">
+                    <h3>{item.name}</h3>
+                    <small>{item.role || "Client"}</small>
+                  </div>
 
-              </article>
-            ))}
-          </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">No testimonials available yet.</div>
+          )}
 
-          {/* Arrow buttons */}
-          <div className="slider-nav">
-            <button className="slider-btn" onClick={() => slide(-1)}>
-              <i className="ri-arrow-left-s-line"></i>
-            </button>
-            <button className="slider-btn" onClick={() => slide(1)}>
-              <i className="ri-arrow-right-s-line"></i>
-            </button>
-          </div>
+          {data.length > 0 && (
+            <>
+              <div className="slider-nav">
+                <button className="slider-btn" onClick={() => slide(-1)}>
+                  <i className="ri-arrow-left-s-line"></i>
+                </button>
+                <button className="slider-btn" onClick={() => slide(1)}>
+                  <i className="ri-arrow-right-s-line"></i>
+                </button>
+              </div>
 
-          <div className="slider-dots" id="testimonials-dots"></div>
+              <div className="slider-dots" id="testimonials-dots"></div>
+            </>
+          )}
         </div>
       </div>
     </section>

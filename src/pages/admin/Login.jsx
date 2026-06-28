@@ -58,7 +58,6 @@ const Login = ({ onLogin }) => {
           <div className="login-field">
             <label className="login-label">Email</label>
             <div className="login-input-wrap">
-              <i className="ri-mail-line login-input-icon" />
               <input
                 className="login-input"
                 type="email"
@@ -74,7 +73,6 @@ const Login = ({ onLogin }) => {
           <div className="login-field">
             <label className="login-label">Password</label>
             <div className="login-input-wrap">
-              <i className="ri-lock-line login-input-icon" />
               <input
                 className="login-input"
                 type={showPass ? "text" : "password"}

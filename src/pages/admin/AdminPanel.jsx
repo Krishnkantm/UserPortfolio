@@ -118,6 +118,7 @@ const IconMoon = () => (
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(false);
   const [active, setActive] = useState("profile");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   /* Read saved preference, default to light */
   const [dark, setDark] = useState(() => {
@@ -128,6 +129,7 @@ const AdminPanel = () => {
   /* Apply theme to <html data-theme="..."> so CSS vars flip everywhere */
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    document.body.classList.toggle("dark-theme", dark);
     try { localStorage.setItem("ap-theme", dark ? "dark" : "light"); } catch {}
   }, [dark]);
 
@@ -155,7 +157,7 @@ const AdminPanel = () => {
   const meta = PAGE_META[active];
 
   return (
-    <div className="admin-layout">
+    <div className={`admin-layout${sidebarOpen ? "" : " sidebar-closed"}`}>
 
       {/* ══════════ SIDEBAR ══════════ */}
       <aside className="sidebar">
@@ -223,6 +225,16 @@ const AdminPanel = () => {
             <p>{meta.sub}</p>
           </div>
           <div className="page-header-right">
+            <button
+              className="sidebar-toggle"
+              type="button"
+              onClick={() => setSidebarOpen((open) => !open)}
+              aria-label={sidebarOpen ? "Close sidebar" : "Open sidebar"}
+            >
+              <span className="sidebar-toggle-icon">
+                {sidebarOpen ? "×" : "☰"}
+              </span>
+            </button>
             <div className="status-dot" />
             <span className="status-txt">Live</span>
           </div>

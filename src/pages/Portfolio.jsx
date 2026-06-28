@@ -11,6 +11,7 @@ import Qualification from '../components/Qualification.jsx';
 import Services from '../components/Services.jsx';
 import CompetitiveProgramming from '../components/Competitive.jsx'
 import AudioPlayer from '../components/Audio.jsx';
+import PortfolioChat from '../components/PortfolioChat.jsx';
 
 const Portfolio = () => (
   <>
@@ -24,6 +25,8 @@ const Portfolio = () => (
       <Projects />
       <Testimonial />
       <Contact />
+
+      <PortfolioChat/>
       <AudioPlayer/>
       <Footer/>
   </>
