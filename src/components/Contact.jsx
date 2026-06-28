@@ -18,45 +18,45 @@ const Contact = () => {
     });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  setLoading(true);
-  setStatus("");
+    setLoading(true);
+    setStatus("");
 
-  try {
-    const result = await emailjs.send(
-      import.meta.env.VITE_SERVICE_ID,
-      import.meta.env.VITE_TEMPLATE_ID,
-      {
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      },
-      import.meta.env.VITE_PUBLIC_KEY
-    );
+    try {
+      const result = await emailjs.send(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        import.meta.env.VITE_PUBLIC_KEY
+      );
 
-    console.log("SUCCESS", result);
+      console.log("SUCCESS", result);
 
-    setStatus("✅ Message sent successfully!");
+      setStatus("✅ Message sent successfully!");
 
-    setForm({
-      name: "",
-      email: "",
-      message: "",
-    });
-  } catch (err) {
-    console.log("ERROR", err);
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (err) {
+      console.log("ERROR", err);
 
-    setStatus("❌ Failed to send message. Please try again.");
-  } finally {
-    setLoading(false);
+      setStatus("❌ Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
 
-    setTimeout(() => {
-      setStatus("");
-    }, 5000);
-  }
-};
+      setTimeout(() => {
+        setStatus("");
+      }, 5000);
+    }
+  };
 
   return (
     <section className="contact section section__border" id="contact">
@@ -113,18 +113,16 @@ const handleSubmit = async (e) => {
               required
             />
 
-           <button
-                type="submit"
-                className="contact__button"
-                disabled={loading}
-              >
-                {loading ? "Sending..." : "Submit"}
-           </button>
+            <button
+              type="submit"
+              className="contact__button"
+              disabled={loading}
+            >
+              {loading ? "Sending..." : "Submit"}
+            </button>
 
             {status && (
-              <p className="contact__message">
-                {status}
-              </p>
+              <p className="contact__message">{status}</p>
             )}
           </form>
         </div>
